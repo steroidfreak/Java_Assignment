@@ -17,9 +17,14 @@ class Downlight extends Light{
         return mounting;
     }
 
+    public void setMounting(String mounting){
+        this.mounting = mounting;
+    }
+
     @Override
-    public void displayType(){
+    public String displayType(){
         System.out.println("This is a downlight");
+        return "downlight";
     }
     public void edit(){
         super.edit();

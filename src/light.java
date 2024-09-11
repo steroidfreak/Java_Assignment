@@ -11,7 +11,7 @@ abstract class Light {
         price = 0.0;
     }
 
-    public abstract void displayType();
+    public abstract String displayType();
     public Light(String name,int power, double price){
         this.name = name;
         this.power = power;

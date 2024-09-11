@@ -19,8 +19,9 @@ class Floodlight extends Light{
     }
 
     @Override
-    public void displayType(){
+    public String displayType(){
         System.out.println("This is a floodlight");
+        return "floodlight";
     }
     public void edit(){
         super.edit();

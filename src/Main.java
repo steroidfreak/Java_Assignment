@@ -10,7 +10,7 @@ public class Main {
             int choice = getMenuChoice();
             boolean keepRunning = processChoice(choice, product);
             Scanner waitForEnter = new Scanner(System.in);
-            System.out.println("Press enter to continue...1");
+            System.out.println("Press enter to continue...");
             String input = waitForEnter.nextLine();
 
             // Pass product as an argument
@@ -119,9 +119,65 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int selection = sc.nextInt();
         selection = selection - 1;
-
         Light productToEdit = product.get(selection);
-        productToEdit.edit();
+
+        System.out.println("1. edit everything!");
+        System.out.println("2. edit selected parameter");
+        System.out.printf("What do you want to edit: ");
+        int editPara = sc.nextInt();
+        if(editPara == 1){
+            productToEdit.edit();
+        }
+        if(editPara ==2){
+            paraToEdit(productToEdit);
+        }
+
+    }
+
+    public static void paraToEdit(Light productToEdit){
+        Scanner sc = new Scanner(System.in);
+        int editChoice = 0;
+        String check = productToEdit.displayType();
+        System.out.println("1. Name: "+productToEdit.getName());
+        System.out.println("2. Power: "+productToEdit.getPower());
+        System.out.println("3. Price: "+productToEdit.getPrice());
+        if (productToEdit instanceof Downlight) {
+            System.out.println("4. Mounting: " + ((Downlight) productToEdit).getMounting());
+            System.out.println("choose which parameter to edit: ");
+            editChoice = sc.nextInt();
+            if(editChoice >0 && editChoice<4) {
+                mainParaToEdit(editChoice, productToEdit);
+            }
+            else if(editChoice ==4){
+                System.out.print("Enter new mounting: ");
+                String newMounting = sc.nextLine();
+                ((Downlight)productToEdit).setMounting(newMounting);
+            }
+
+
+        }
+        if (productToEdit instanceof Floodlight) {
+            System.out.println("4. Type: " + ((Floodlight) productToEdit).getType());
+            System.out.println("choose which parameter to edit: ");
+            editChoice = sc.nextInt();
+            if(editChoice >0 && editChoice<4) {
+                mainParaToEdit(editChoice, productToEdit);
+            }
+            else if(editChoice ==4){
+                System.out.print("Enter new type: ");
+                String newType = sc.nextLine();
+                ((Floodlight)productToEdit).setType(newType);
+            }
+        }
+    }
+
+    public static void mainParaToEdit(int editChoice,Light productToEdit){
+        Scanner sc = new Scanner(System.in);
+        if(editChoice == 1){
+            System.out.println("Enter new name: ");
+            String newName = sc.nextLine();
+            productToEdit.setName(newName);
+        }
 
     }
 
