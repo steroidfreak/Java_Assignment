@@ -14,6 +14,7 @@ class Floodlight extends Light{
         return type;
     }
 
+    @Override
     public void setType(String type){
         this.type = type;
     }

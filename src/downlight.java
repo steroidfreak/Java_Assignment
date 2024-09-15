@@ -13,10 +13,12 @@ class Downlight extends Light{
         this.mounting = mounting;
     }
 
+
     public String getMounting() {
         return mounting;
     }
 
+    @Override
     public void setMounting(String mounting){
         this.mounting = mounting;
     }

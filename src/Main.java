@@ -149,9 +149,11 @@ public class Main {
                 mainParaToEdit(editChoice, productToEdit);
             }
             else if(editChoice ==4){
+                Scanner input = new Scanner(System.in);
                 System.out.print("Enter new mounting: ");
-                String newMounting = sc.nextLine();
-                ((Downlight)productToEdit).setMounting(newMounting);
+                String newMounting = input.nextLine();
+                System.out.println(newMounting);
+                productToEdit.setMounting(newMounting);
             }
 
 
@@ -164,9 +166,10 @@ public class Main {
                 mainParaToEdit(editChoice, productToEdit);
             }
             else if(editChoice ==4){
+                Scanner input = new Scanner(System.in);
                 System.out.print("Enter new type: ");
-                String newType = sc.nextLine();
-                ((Floodlight)productToEdit).setType(newType);
+                String newType = input.nextLine();
+                productToEdit.setType(newType);
             }
         }
     }
@@ -178,6 +181,17 @@ public class Main {
             String newName = sc.nextLine();
             productToEdit.setName(newName);
         }
+        if(editChoice == 2){
+            System.out.println("Enter new power: ");
+            int newPower = sc.nextInt();
+            productToEdit.setPower(newPower);
+        }
+        if(editChoice == 3){
+            System.out.println("Enter new price: ");
+            double newPrice = sc.nextDouble();
+            productToEdit.setPrice(newPrice);
+        }
+
 
     }
 

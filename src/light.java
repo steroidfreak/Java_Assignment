@@ -4,6 +4,8 @@ abstract class Light {
     protected String name;
     protected int power;
     protected double price;
+    protected String mounting;
+    protected String type;
 
     public Light(){
         name = "N/A";
@@ -12,6 +14,7 @@ abstract class Light {
     }
 
     public abstract String displayType();
+
     public Light(String name,int power, double price){
         this.name = name;
         this.power = power;
@@ -27,6 +30,15 @@ abstract class Light {
         return price;
     }
 
+
+
+    public void setMounting(String mounting){
+        this.mounting=mounting;
+    }
+
+    public void setType(String type){
+        this.type=type;
+    }
     public void setName(String name){
         this.name = name;
     }
